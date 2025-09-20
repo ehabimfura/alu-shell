@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+echo "The current working directory path is:" ; pwd
