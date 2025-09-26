@@ -1,2 +1,2 @@
 #!/bin/bash
-./25-acrostic < An\ Acrostic
+cut -c 1 input.txt | tr -d '\n'
