@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f \( -name '*.gif' -o -name '.*.gif' \) -exec basename {} \; | rev | cut -d. -f2- | rev | sort -f
+find . -type f \( -name '*.gif' -o -name '.*.gif' \) -print | xargs -d '\n' -n1 basename | rev | cut -d. -f2- | rev | sort -f
