@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# a for loop that displays a word 10 times
+word=0
+while [ $word -lt 10 ];
+do
+  echo "Best School"
+  ((word++))
+done
