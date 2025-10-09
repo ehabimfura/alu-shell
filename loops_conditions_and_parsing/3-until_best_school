@@ -1,4 +1,5 @@
 #!/bin/bash
+#print word ten times
 num=0
 until [ ! $num -lt 10 ]; do
   echo "Best School"
