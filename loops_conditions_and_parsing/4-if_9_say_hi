@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
-#print Best school and Hi
-words=0
-while [ $words -lt 10 ]; do
-  echo "$words"
-  if [ "$words" -eq 9 ];
-  then
-    echo "Hi"
-  fi
-  ((words++))
-done
+#!/usr?bin/env bash
+#print best school and Hi
+count=1
+while [ "$count" -le 10 ]; do
+    if [ "$count" -eq 9 ]; then
+        echo "Best School"
+        echo "Hi"
+    else
+        echo "Best School"
+    fi
+    count=$((count + 1)) 
+done 
