@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-#list 
+#list
 for file in *; do
-  if [[ "$file" == *-* ]]; then
-    cut -d '-' -f 2-
-  fi
+  echo "${file#*-}"
 done
-
