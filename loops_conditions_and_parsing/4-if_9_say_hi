@@ -3,7 +3,7 @@
 words=0
 while [ $words -lt 10 ]; do
   echo "$words"
-  if [ $words -eq 9 ]
+  if [ "$words" -eq 9 ];
   then
     echo "Hi"
   fi
