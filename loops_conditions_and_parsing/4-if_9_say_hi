@@ -1,4 +1,4 @@
-#!/usr?bin/env bash
+#!/usr/bin/env bash
 #print best school and Hi
 count=1
 while [ "$count" -le 10 ]; do
