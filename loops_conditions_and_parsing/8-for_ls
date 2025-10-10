@@ -2,7 +2,7 @@
 #list 
 for file in *; do
   if [[ "$file" == *-* ]]; then
-    echo "${file#*-}"
+    cut -d '-' -f 2-
   fi
 done
 
