@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 #print Best school and Hi
 words=0
 while [ $words -lt 10 ]; do
