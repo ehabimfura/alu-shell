@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 #display hours and minutes
 hour=0
-minute=1
 while [ $hour -le 12 ]; do
-    if [ "$hour" -le 1 ]; then
-       echo "Hour: $hour"
-    else
-       echo "$((hour-1))"
-    fi
+   echo "Hour: $hour"
+   minute=1
     while [ $minute -le 59 ]; do
         echo "$minute"
         minute=$((minute + 1))
