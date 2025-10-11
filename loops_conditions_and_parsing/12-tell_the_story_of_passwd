@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 # Read the /etc/passwd file line-by-line, splitting on colons.
+set -o nounset
+set -o errexit
+set -o pipefail
+
+# Read /etc/passwd line by line, splitting on colons
 while IFS=: read -r username password user_id group_id user_comment home_dir shell
 do
-    # Print the user story with the formatted fields.
+    # Use printf for formatted output, ensuring correct variable substitution
     printf "The user %s is part of the %s gang, lives in %s and rides %s.\n" \
         "${username}" "${group_id}" "${home_dir}" "${shell}"
     
     printf "%s's place is protected by the passcode %s, more info about the user here: %s\n\n" \
         "${user_id}" "${password}" "${user_comment}"
 done < /etc/passwd
+
