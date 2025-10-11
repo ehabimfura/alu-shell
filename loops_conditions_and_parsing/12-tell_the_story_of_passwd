@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 # Read the /etc/passwd file line-by-line, splitting on colons
-while IFS=: read -r USERNAME PASSWORD user_id GID INFO HOME_DIRECTORY SHELL; do
-    
-    # Check if the USERNAME field is not empty, to skip any blank lines
-    if [[ -n "$USERNAME" ]]; then
-        # Use the `echo` command to print the formatted output for each user
-        echo "The user $USERNAME is part of the $GID gang, lives in $HOME_DIRECTORY and rides $SHELL."
-        echo "$user_id's place is protected by the passcode $PASSWORD, more info about the user here: $INFO"
-        echo ""  # Add a blank line for readability between entries
-    fi
+# Read /etc/passwd line by line
+while IFS=":" read -r username password user_id group_id user_info home_dir shell
+do
+  echo "The user $username is part of the $group_id gang, lives in $home_dir and rides $shell. USER ID's place is protected by the passcode $password, more info about the user here: $user_info"
 done < /etc/passwd
+
