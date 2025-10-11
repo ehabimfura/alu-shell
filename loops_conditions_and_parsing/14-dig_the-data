@@ -1,9 +1,26 @@
 #!/usr/bin/env bash
-# Groups visitors by IP and HTTP status code and counts occurrences
+# Groups visitors by IP and HTTP status code and counts occurrunces
 awk '
-NF >= 9 && $9 ~ /^[0-9]{3}$/ { counts[$1" "$9]++ } 
-END { 
-    n = asorti(counts, sorted_counts, "@val_num_desc")
-    for (i = 1; i <= n; i++) print counts[sorted_counts[i]], sorted_counts[i] 
+NF >= 9 && $9 ~ /^[0-9]{3}$/ { counts[$1" "$9]++ }
+END {
+  # Build an array of counts for sorting
+  for (pair in counts) {
+    count_val = counts[pair]
+    if (count_val in bycount) {
+      bycount[count_val] = bycount[count_val] " " pair
+    } else {
+      bycount[count_val] = pair
+    }
+  }
+
+  # Extract counts in descending order
+  n = asorti(bycount, sorted_counts, "@ind_num_desc")
+  for (i = 1; i <= n; i++) {
+    count_val = sorted_counts[i]
+    split(bycount[count_val], pairs, " ")
+    for (j in pairs) {
+      print count_val, pairs[j]
+    }
+  }
 }' apache-access.log
 
