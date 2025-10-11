@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #display user id home path
-while IFS=: read -r username password user_id group_id user_comment home_dir shell
+# Read /etc/passwd line by line
+while IFS=: read -r username _ user_id _ _ home_dir _
 do
-    echo "${username}:${user_id}:${home_dir}"
+  # Print the formatted output using printf for better portability
+  printf "%s:%s:%s\n" "${username}" "${user_id}" "${home_dir}"
 done < /etc/passwd
 
