@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 # Groups visitors by IP and HTTP status code and counts occurrences
-awk 'NF>=9 && $9 ~ /^[0-9]{3}$/ { print $1, $9 }' apache-access.log | sort | uniq -c | sort -nr
+awk '
+NF >= 9 && $9 ~ /^[0-9]{3}$/ { counts[$1" "$9]++ } 
+END { 
+    n = asorti(counts, sorted_counts, "@val_num_desc")
+    for (i = 1; i <= n; i++) print counts[sorted_counts[i]], sorted_counts[i] 
+}' apache-access.log
 
